@@ -23,7 +23,7 @@ const Investment: React.FC = () => {
             <p className="text-gray-400 text-lg font-light mb-12 leading-relaxed">
               At Magnum Estate, we provide strategic assets designed to protect and grow capital across global markets through meticulous selection and professional management.
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
               {INVESTMENT_CARDS.map((card, i) => {
                 const Icon = iconMap[card.icon];
@@ -45,13 +45,6 @@ const Investment: React.FC = () => {
 
           <div className="relative reveal flex justify-center items-center" style={{ transitionDelay: '200ms' }}>
             <Clock />
-            
-            {/* Logo callout - using original logo shape */}
-            <div className="absolute -bottom-8 -left-4 md:-left-12 bg-black/90 p-8 md:p-10 border border-[#C5A059]/30 shadow-2xl z-10 transition-transform hover:-translate-y-2">
-              <img src={LOGO_URL} alt="Logo" className="h-10 md:h-12 w-auto mb-4" />
-              <div className="text-2xl font-serif text-[#C5A059] mb-1 leading-none">MAGNUM</div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-bold">Est. Precision</div>
-            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Developer | Luxury Real Estate & Investments</title>
+    <style>
+        /* Critical CSS for loading states */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #1A1A1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div class="font-header" style="color: #C5A059; letter-spacing: 0.5em; font-size: 24px;">MAGNUM</div>
+    </div>
+
+    <header id="main-header">
+        <div class="container header-content">
+            <div class="logo font-header">MAGNUM<span>ESTATE</span></div>
+            <nav class="desktop-nav">
+                <a href="#projects">Проекты</a>
+                <a href="#investments">Инвестиции</a>
+                <a href="#about">О компании</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#projects" class="btn btn-primary btn-sm">Смотреть проекты</a>
+                <button class="menu-toggle" id="menu-btn"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80"
+                    alt="Luxury Villa" id="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <h1 class="fade-in">Премиальные резиденции <br> у океана в Бали</h1>
+                <p class="fade-in delay-1">Архитектура вне времени, эксклюзивный сервис и гарантированная инвестиционная
+                    доходность.</p>
+                <div class="hero-btns fade-in delay-2">
+                    <a href="#projects" class="btn btn-primary">Смотреть проекты</a>
+                    <a href="#contact" class="btn btn-outline">Получить презентацию</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>SCROLL</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Наши резиденции</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="villa">Виллы</button>
+                    <button class="filter-btn" data-filter="residence">Резиденции</button>
+                </div>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="investments" class="bg-dark">
+            <div class="container">
+                <h2 class="section-title text-white">Для инвесторов</h2>
+                <div class="invest-grid">
+                    <div class="invest-card">
+                        <div class="invest-icon">★</div>
+                        <h3>Доходность</h3>
+                        <p>До 15% годовых в долларах США от аренды и капитализации объекта.</p>
+                    </div>
+                    <div class="invest-card">
+                        <div class="invest-icon">✔</div>
+                        <h3>Прозрачность</h3>
+                        <p>Полное юридическое сопровождение и структурирование сделки.</p>
+                    </div>
+                    <div class="invest-card">
+                        <div class="invest-icon">🏠</div>
+                        <h3>Управление</h3>
+                        <p>Собственная управляющая компания с мировыми стандартами сервиса.</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-num">5+</span>
+                        <span class="stat-label">Лет на рынке</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">12</span>
+                        <span class="stat-label">Проектов реализовано</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">24/7</span>
+                        <span class="stat-label">Сервисная поддержка</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">UHNW</span>
+                        <span class="stat-label">Статус партнеров</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2 class="section-title align-left">Связаться с нами</h2>
+                        <p>Оставьте заявку, и наши специалисты свяжутся с вами в течение 30 минут для персональной
+                            консультации.</p>
+                        <div class="social-links">
+                            <a href="#">WhatsApp</a>
+                            <a href="#">Telegram</a>
+                            <a href="#">Email</a>
+                        </div>
+                    </div>
+                    <div class="contact-form-box">
+                        <form id="lead-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Номер телефона" required>
+                            </div>
+                            <div class="form-group">
+                                <select>
+                                    <option value="">Интересующий проект</option>
+                                    <option value="umalas">Magnum Umalas</option>
+                                    <option value="canggu">Magnum Canggu</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">Отправить запрос</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo font-header">MAGNUM<span>ESTATE</span></div>
+                <p>Ведущий девелопер премиальной недвижимости в Юго-Восточной Азии.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <a href="#projects">Проекты</a>
+                <a href="#investments">Инвестиции</a>
+                <a href="#about">О компании</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <p>Bali, Indonesia</p>
+                <p>+62 (000) 000-00-00</p>
+                <p>info@magnumestate.pro</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Magnum Estate. All rights reserved.</p>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

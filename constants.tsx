@@ -11,8 +11,8 @@ export const COLORS = {
   textMuted: '#666666',
 };
 
-// conceptual logo.png source
-export const LOGO_URL = 'https://i.ibb.co/L6vV7xV/image.png';
+// localized logo.png source 
+export const LOGO_URL = '/2.png';
 
 export const NAVIGATION_LINKS = [
   { label: 'Projects', href: '#projects' },
@@ -96,7 +96,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'Oct 24, 2024',
     category: 'Architecture',
     excerpt: 'How leading designers are blending ecological responsibility with high-end living.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200',
   },
   {
     id: '2',
@@ -104,7 +104,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'Oct 12, 2024',
     category: 'Market Trends',
     excerpt: 'An analysis of emerging real estate markets with the highest growth potential.',
-    image: 'https://images.unsplash.com/photo-1460472178825-e5240623abe5?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200',
   },
   {
     id: '3',
@@ -112,6 +112,6 @@ export const ARTICLES_DATA: Article[] = [
     date: 'Sep 28, 2024',
     category: 'Lifestyle',
     excerpt: 'Why minimalist elegance is outperforming ostentatious displays in modern homes.',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200',
   },
 ];
