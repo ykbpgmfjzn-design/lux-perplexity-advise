@@ -11,6 +11,9 @@ export const COLORS = {
   textMuted: '#666666',
 };
 
+// conceptual logo.png source
+export const LOGO_URL = 'https://i.ibb.co/L6vV7xV/image.png';
+
 export const NAVIGATION_LINKS = [
   { label: 'Projects', href: '#projects' },
   { label: 'Investments', href: '#investment' },
