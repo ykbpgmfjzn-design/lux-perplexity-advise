@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { TrendingUp, ShieldCheck, Settings, Globe } from 'lucide-react';
-import { INVESTMENT_CARDS } from '../constants';
-import Button from './Button';
+import { INVESTMENT_CARDS } from '../constants.tsx';
+import Button from './Button.tsx';
 
 const iconMap: Record<string, any> = {
   TrendingUp,
@@ -16,10 +16,10 @@ const Investment: React.FC = () => {
     <section id="investment" className="py-24 px-6 md:px-12 bg-[#111] text-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div className="reveal">
             <h2 className="text-4xl md:text-5xl font-serif mb-8">Invest with Confidence</h2>
             <p className="text-gray-400 text-lg font-light mb-12 leading-relaxed">
-              We provide more than just real estate; we offer a strategic asset class designed to protect and grow capital across global markets through meticulous selection and professional management.
+              We provide strategic assets designed to protect and grow capital across global markets.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
@@ -37,20 +37,17 @@ const Investment: React.FC = () => {
             </div>
 
             <Button variant="secondary" className="w-full sm:w-auto">
-              Request Investment Deck
+              Request Deck
             </Button>
           </div>
 
-          <div className="relative">
+          <div className="relative reveal" style={{ transitionDelay: '200ms' }}>
             <img 
               src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=1200" 
               alt="Investment Analysis" 
               className="w-full grayscale opacity-60 rounded-sm"
+              loading="lazy"
             />
-            <div className="absolute -bottom-6 -left-6 bg-[#C5A059] p-10 hidden md:block">
-              <div className="text-4xl font-serif text-white mb-2">25+</div>
-              <div className="text-xs uppercase tracking-widest text-white/80">Years Excellence</div>
-            </div>
           </div>
         </div>
       </div>

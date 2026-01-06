@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ARTICLES_DATA } from '../constants';
+import { ARTICLES_DATA } from '../constants.tsx';
 import { ArrowRight } from 'lucide-react';
 
 const Journal: React.FC = () => {
@@ -13,24 +13,20 @@ const Journal: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-serif">The Journal</h2>
           </div>
           <a href="#" className="hidden sm:flex items-center text-sm font-bold tracking-widest group">
-            READ ALL ARTICLES <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={16} />
+            READ ALL <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={16} />
           </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {ARTICLES_DATA.map((article) => (
-            <article key={article.id} className="group cursor-pointer bg-white overflow-hidden hover:shadow-xl transition-shadow duration-500">
+            <article key={article.id} className="group cursor-pointer bg-white overflow-hidden hover:shadow-xl transition-shadow duration-500 reveal">
               <div className="relative aspect-video overflow-hidden">
                 <img 
                   src={article.image} 
                   alt={article.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#111] text-white text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
-                    {article.category}
-                  </span>
-                </div>
               </div>
               <div className="p-8">
                 <div className="text-[10px] text-gray-400 font-bold tracking-widest uppercase mb-4">
@@ -48,12 +44,6 @@ const Journal: React.FC = () => {
               </div>
             </article>
           ))}
-        </div>
-        
-        <div className="mt-12 sm:hidden text-center">
-           <a href="#" className="inline-flex items-center text-sm font-bold tracking-widest group">
-            VIEW ALL <ArrowRight className="ml-2" size={16} />
-          </a>
         </div>
       </div>
     </section>

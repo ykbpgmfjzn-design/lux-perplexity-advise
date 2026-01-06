@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { NAVIGATION_LINKS } from '../constants';
+import { NAVIGATION_LINKS } from '../constants.tsx';
 import { Phone, MessageSquare, Menu, X } from 'lucide-react';
-import Button from './Button';
+import Button from './Button.tsx';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -23,12 +23,10 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="max-w-[1440px] mx-auto w-full flex items-center justify-between">
-        {/* Logo */}
         <div className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled ? 'text-black' : 'text-white'}`}>
           LUXEDEV
         </div>
 
-        {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center space-x-10">
           {NAVIGATION_LINKS.map((link) => (
             <a
@@ -43,7 +41,6 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Actions */}
         <div className="flex items-center space-x-4 md:space-x-6">
           <div className={`hidden md:flex space-x-4 ${isScrolled ? 'text-black' : 'text-white'}`}>
             <Phone size={20} className="cursor-pointer hover:text-[#C5A059] transition-colors" />
@@ -61,7 +58,6 @@ const Header: React.FC = () => {
             VIEW PROJECTS
           </Button>
 
-          {/* Mobile Menu Toggle */}
           <button 
             className={`lg:hidden ${isScrolled ? 'text-black' : 'text-white'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,9 +67,8 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[60] flex flex-col p-8 lg:hidden animate-fade-in">
+        <div className="fixed inset-0 bg-white z-[60] flex flex-col p-8 lg:hidden animate-in fade-in duration-300">
           <div className="flex justify-between items-center mb-12">
             <div className="text-2xl font-serif font-bold text-black">LUXEDEV</div>
             <button onClick={() => setIsMenuOpen(false)}><X size={32} /></button>
@@ -92,10 +87,6 @@ const Header: React.FC = () => {
           </nav>
           <div className="mt-auto pt-12 border-t flex flex-col space-y-4">
              <Button variant="primary" className="w-full">View Projects</Button>
-             <div className="flex justify-center space-x-8 py-4 text-gray-600">
-                <Phone />
-                <MessageSquare />
-             </div>
           </div>
         </div>
       )}

@@ -1,36 +1,29 @@
 
 import React, { useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Investment from './components/Investment';
-import Journal from './components/Journal';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
+import Projects from './components/Projects.tsx';
+import Investment from './components/Investment.tsx';
+import Journal from './components/Journal.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
-  // Intersection Observer for fade-in animations
   useEffect(() => {
     const observerOptions = {
-      root: null,
       threshold: 0.1,
-      rootMargin: "0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.add('active');
         }
       });
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll('.reveal');
-    animatedElements.forEach(el => {
-      el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
-      observer.observe(el);
-    });
+    animatedElements.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -41,7 +34,6 @@ const App: React.FC = () => {
       <main>
         <Hero />
         
-        {/* Social Proof / KPI Section */}
         <section className="py-16 bg-white border-b border-gray-50 overflow-hidden">
           <div className="max-w-[1440px] mx-auto px-6 md:px-12">
              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -67,7 +59,6 @@ const App: React.FC = () => {
 
         <Projects />
 
-        {/* Flagship Highlight Section */}
         <section className="relative h-[80vh] bg-[#111] overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1600" 
@@ -85,9 +76,9 @@ const App: React.FC = () => {
                   <li>Estimated completion: Q4 2026</li>
                   <li>Yield potential up to 14% APR</li>
                 </ul>
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-4">
                    <button className="bg-[#C5A059] text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-[#A88548] transition-colors">VIRTUAL TOUR</button>
-                   <button className="border border-white text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all">DOWNLOAD BROCHURE (PDF)</button>
+                   <button className="border border-white text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all">DOWNLOAD BROCHURE</button>
                 </div>
               </div>
             </div>
@@ -96,7 +87,6 @@ const App: React.FC = () => {
 
         <Investment />
 
-        {/* About the Developer */}
         <section id="about" className="py-24 px-6 md:px-12 bg-white overflow-hidden">
            <div className="max-w-[1440px] mx-auto">
               <div className="flex flex-col lg:flex-row gap-20 items-center">
@@ -104,20 +94,17 @@ const App: React.FC = () => {
                     <img 
                       src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
                       alt="The LuxeDev Spirit" 
-                      className="w-full h-[600px] object-cover"
+                      className="w-full h-[400px] md:h-[600px] object-cover"
                     />
                  </div>
                  <div className="lg:w-1/2 reveal">
                     <h2 className="text-4xl md:text-5xl font-serif mb-8">Architects of <br /> the Unforgettable</h2>
                     <div className="space-y-6 text-gray-500 font-light leading-relaxed text-lg">
                       <p>
-                        Founded with a vision to transcend the ordinary, LuxeDev has grown into a world-class real estate powerhouse known for its unwavering commitment to quality and architectural integrity.
+                        Founded with a vision to transcend the ordinary, LuxeDev has grown into a world-class real estate powerhouse known for its unwavering commitment to quality.
                       </p>
                       <p>
-                        Every project we undertake is a dialogue between human ambition and nature's grace. We select only the most exclusive locations, ensuring that every LuxeDev address is not just a residence, but a landmark of enduring value.
-                      </p>
-                      <p>
-                        Our philosophy is built on three pillars: visionary design, meticulous craftsmanship, and long-term partnership with our community of global investors.
+                        Every project we undertake is a dialogue between human ambition and nature's grace. We select only the most exclusive locations.
                       </p>
                     </div>
                     <button className="mt-10 border-b-2 border-[#111] pb-2 text-sm font-bold tracking-widest hover:text-[#C5A059] hover:border-[#C5A059] transition-all">
