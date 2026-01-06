@@ -1,0 +1,7 @@
+{
+  "name": "LuxeDev - Premium Real Estate Developer",
+  "description": "A high-end website for a premium developer featuring architectural showcases, investment opportunities, and luxury residential projects.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
