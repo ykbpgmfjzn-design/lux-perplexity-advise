@@ -16,20 +16,30 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[80px] md:h-[100px] flex items-center px-6 md:px-12 ${
-        isScrolled ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[80px] md:h-[100px] flex items-center px-6 md:px-12 ${isScrolled ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-[1440px] mx-auto w-full flex items-center justify-between">
         {/* Logo Container - Preserving original form without extra borders */}
         <div className="flex items-center">
           <a href="/" className="block">
-            <img 
-              src={LOGO_URL} 
-              alt="Magnum Estate Logo" 
-              className={`h-10 md:h-12 w-auto transition-all duration-300 filter ${isScrolled ? 'brightness-125' : 'brightness-100'}`} 
+            <img
+              src={LOGO_URL}
+              alt="Magnum Estate Logo"
+              className={`h-10 md:h-12 w-auto transition-all duration-300 filter ${isScrolled ? 'brightness-125' : 'brightness-100'}`}
             />
           </a>
         </div>
@@ -42,13 +52,13 @@ const Header: React.FC = () => {
             <span className="text-gray-500 hover:text-[#C5A059] transition-colors">RU</span>
           </div>
 
-          <Button 
+          <Button
             className="hidden sm:flex !py-2.5 !px-10 !text-[10px] !bg-transparent border border-white/20 hover:!border-[#C5A059] transition-all duration-500"
           >
             VIEW PROJECTS
           </Button>
 
-          <button 
+          <button
             className="text-white hover:text-[#C5A059] transition-colors focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -57,30 +67,35 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Removed lg:hidden to support all screen sizes */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-[#070707] z-[60] flex flex-col p-8 lg:hidden animate-in fade-in slide-in-from-top duration-500">
-          <div className="flex justify-between items-center mb-20">
-            <img src={LOGO_URL} alt="Logo" className="h-10 w-auto" />
+        <div className="fixed inset-0 bg-[#070707] z-[60] flex flex-col p-8 animate-in fade-in slide-in-from-top duration-500">
+          <div className="flex justify-between items-center mb-12 md:mb-20">
+            <img src={LOGO_URL} alt="Logo" className="h-10 md:h-12 w-auto" />
             <button onClick={() => setIsMenuOpen(false)} className="text-white">
               <X size={36} strokeWidth={1} />
             </button>
           </div>
-          <nav className="flex flex-col space-y-10 text-4xl font-serif text-white/90">
+          <nav className="flex flex-col space-y-8 md:space-y-10 text-3xl md:text-4xl font-serif text-white/90">
             {NAVIGATION_LINKS.map((link) => (
-              <a 
-                key={link.label} 
-                href={link.href} 
+              <a
+                key={link.label}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="hover:text-[#C5A059] transition-all"
+                className="hover:text-[#C5A059] transition-all border-b border-white/5 pb-4 md:border-0 md:pb-0"
               >
                 {link.label}
               </a>
             ))}
           </nav>
           <div className="mt-auto pt-12 flex flex-col space-y-6">
-             <Button className="w-full !py-6 text-lg">EXPLORE PORTFOLIO</Button>
-             <p className="text-[10px] text-center text-white/20 tracking-[0.5em] font-bold uppercase">Magnum Estate International</p>
+            <Button
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full !py-6 text-lg !bg-[#C5A059] !text-black border-none"
+            >
+              EXPLORE PORTFOLIO
+            </Button>
+            <p className="text-[10px] text-center text-white/20 tracking-[0.5em] font-bold uppercase">Magnum Estate International</p>
           </div>
         </div>
       )}
