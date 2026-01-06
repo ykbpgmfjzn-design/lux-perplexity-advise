@@ -46,7 +46,10 @@ const Clock: React.FC = () => {
 
     const render = () => {
       const dpr = window.devicePixelRatio || 2;
-      const displaySize = canvas.clientWidth || 500;
+      // Get the minimum dimension to ensure it stays perfectly round even if parent stretches
+      const clientW = canvas.clientWidth || 500;
+      const clientH = canvas.clientHeight || 500;
+      const displaySize = Math.min(clientW, clientH);
 
       if (canvas.width !== displaySize * dpr) {
         canvas.width = displaySize * dpr;
@@ -156,11 +159,11 @@ const Clock: React.FC = () => {
   }, [isReady]);
 
   return (
-    <div className="flex items-center justify-center p-4 w-full h-full">
+    <div className="flex items-center justify-center p-4 w-full h-full min-h-[300px]">
       <canvas
         ref={canvasRef}
-        style={{ width: '500px', height: '500px' }}
-        className="max-w-full h-auto aspect-square rounded-full border border-white/5 shadow-2xl"
+        style={{ aspectRatio: '1/1' }}
+        className="w-full max-w-[500px] h-auto rounded-full border border-white/5 shadow-2xl"
       />
     </div>
   );
