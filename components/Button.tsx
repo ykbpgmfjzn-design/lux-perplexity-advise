@@ -13,17 +13,11 @@ const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "px-8 py-3 transition-all duration-300 font-medium tracking-wide text-sm flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed";
-  
-  const variants = {
-    primary: "bg-[#111111] text-white hover:bg-[#C5A059] active:translate-y-[1px]",
-    secondary: "bg-[#C5A059] text-white hover:bg-[#A88548] active:translate-y-[1px]",
-    outline: "border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white active:translate-y-[1px]"
-  };
-
+  // We apply the btn-luxe class which contains the main animation logic
+  // Variants can still adjust specific tweaks if needed, but the base is btn-luxe
   return (
     <button 
-      className={`${baseStyles} ${variants[variant]} ${className}`}
+      className={`btn-luxe ${className}`}
       {...props}
     >
       {children}

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import Button from './Button';
+import Button from './Button.tsx';
 
 const Hero: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           alt="Premium Architecture" 
           className="w-full h-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 luxury-gradient" />
+        <div className="absolute inset-0 luxury-gradient-overlay" />
       </div>
 
       {/* Content */}
@@ -25,11 +25,11 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-xl font-light text-gray-200 mb-10 max-w-xl leading-relaxed tracking-wide">
             Exceptional residences defined by iconic architecture, bespoke service, and unparalleled investment potential in the world's most desired locations.
           </p>
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button variant="secondary" className="px-10 py-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <Button>
               Explore Portfolio
             </Button>
-            <Button variant="outline" className="px-10 py-4 border-white text-white hover:bg-white hover:text-black">
+            <Button className="!border-white/40 !text-white/80 hover:!text-white">
               Get Presentation
             </Button>
           </div>

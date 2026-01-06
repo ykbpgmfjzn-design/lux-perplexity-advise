@@ -52,8 +52,7 @@ const Header: React.FC = () => {
           </div>
 
           <Button 
-            variant={isScrolled ? "primary" : "secondary"} 
-            className="hidden sm:flex text-xs h-10 px-6"
+            className={`hidden sm:flex !py-2 !px-6 text-[9px]`}
           >
             VIEW PROJECTS
           </Button>
@@ -86,7 +85,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
           <div className="mt-auto pt-12 border-t flex flex-col space-y-4">
-             <Button variant="primary" className="w-full">View Projects</Button>
+             <Button className="w-full">View Projects</Button>
           </div>
         </div>
       )}

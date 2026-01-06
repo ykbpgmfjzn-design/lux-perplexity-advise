@@ -7,6 +7,7 @@ import Investment from './components/Investment.tsx';
 import Journal from './components/Journal.tsx';
 import Contact from './components/Contact.tsx';
 import Footer from './components/Footer.tsx';
+import Button from './components/Button.tsx';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -77,8 +78,8 @@ const App: React.FC = () => {
                   <li>Yield potential up to 14% APR</li>
                 </ul>
                 <div className="flex flex-wrap gap-4">
-                   <button className="bg-[#C5A059] text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-[#A88548] transition-colors">VIRTUAL TOUR</button>
-                   <button className="border border-white text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all">DOWNLOAD BROCHURE</button>
+                   <Button>VIRTUAL TOUR</Button>
+                   <Button className="!border-white/40 !text-white/80">DOWNLOAD BROCHURE</Button>
                 </div>
               </div>
             </div>
